@@ -1,83 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Selvam Dakshnamoorthy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Selvam Dakshnamoorthy — IT Leader</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f8f9fa;
-      color: #333;
+    :root{
+      --bg:#0f172a;           /* deep slate */
+      --panel:#111827;        /* panel dark */
+      --muted:#94a3b8;        /* slate-300 */
+      --text:#e5e7eb;         /* gray-200 */
+      --brand:#38bdf8;        /* sky-400 */
+      --brand-2:#22d3ee;      /* cyan-400 */
+      --ring:rgba(56,189,248,.35);
+      --max:1100px;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
     }
-    header {
-      background: #343a40;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b1222, #0f172a 50%, #0b1222);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{color:var(--brand-2)}
+    .container{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:saturate(160%) blur(8px);
+      background:rgba(15,23,42,.7);
+      border-bottom:1px solid rgba(148,163,184,.12);
     }
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{font-weight:700;letter-spacing:.3px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#001018;font-weight:700}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 18px var(--ring)}
+    .hero{
+      padding:72px 0 32px;background:
+       radial-gradient(800px 300px at 50% -50%,rgba(56,189,248,.15),transparent 70%),
+       radial-gradient(900px 400px at -10% 10%,rgba(34,211,238,.15),transparent 65%);
+      text-align:center;
     }
-    h1, h2 {
-      color: #222;
-    }
-    .images {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .images img {
-      width: 250px;
-      height: auto;
-      margin: 10px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #343a40;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
+    .hero h1{font-size:clamp(28px,4vw,44px);margin:8px 0 10px}
+    .hero p{color:var(--muted);font-size:clamp(15px,2.2vw,18px);margin:0 auto;max-width:800px}
+    .hero .actions{margin-top:22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(148,163,184,.12);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .section{padding:36px 0}
+    .grid{display:grid;gap:18px}
+    .about{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:start}
+    .about p{color:#cbd5e1;margin:0 0 14px}
+    .bullets{margin:12px 0 0;padding-left:18px;color:#cbd5e1}
+    .bullets li{margin:6px 0}
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .card{overflow:hidden}
+    .img{width:100%;height:240px;object-fit:cover;display:block}
+    .skill-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .skill{padding:16px;border-radius:14px;border:1px solid rgba(148,163,184,.12);background:#0b1222}
+    .skill h4{margin:0 0 6px}
+    .skill p{margin:0;color:#9fb0c2;font-size:14px}
+    .footer{padding:26px 0;margin-top:18px;border-top:1px solid rgba(148,163,184,.12);color:#9fb0c2;text-align:center}
+    @media (max-width:980px){.about{grid-template-columns:1fr}}
+    @media (max-width:720px){.gallery{grid-template-columns:1fr 1fr}.img{height:200px}.skill-grid{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>About Me</h1>
+  <!-- Top Nav -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Selvam Dakshnamoorthy</div>
+      <div class="actions">
+        <a class="btn" href="#contact" aria-label="Jump to contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>IT Manager • Infrastructure & Security • Digital Transformation</h1>
+      <p>
+        20+ years leading enterprise IT in manufacturing—networking, firewalls, SD-WAN, CCTV/IoT,
+        and ERP enablement. Passionate about automation, cloud adoption, and measurable business impact.
+      </p>
+      <div class="actions">
+        <a class="btn" href="#about">View Profile</a>
+        <a class="btn" href="#focus">Core Focus</a>
+      </div>
+    </div>
   </header>
 
-  <section>
-    <h2>Hello, I'm Selvam Dakshnamoorthy</h2>
-    <p>
-      I am an IT professional with over 20 years of experience in infrastructure, networking, 
-      and digital transformation projects. Currently working as an IT Manager, I am passionate 
-      about automation, cloud technologies, cybersecurity, and helping organizations achieve 
-      efficiency through innovation.
-    </p>
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container panel about">
+      <div>
+        <h2>About Me</h2>
+        <p>
+          I help plants and multi-site operations run reliably by designing resilient networks,
+          securing the perimeter and endpoints, and digitizing manual processes. I enjoy building
+          simple, scalable systems—then mentoring teams to operate them confidently.
+        </p>
+        <p>
+          Current interests: cloud fundamentals (Azure/AWS), Python and modern web tooling, and
+          data-driven dashboards for leadership decision-making.
+        </p>
 
-    <p>
-      Outside my professional role, I enjoy exploring new technologies, mentoring young learners, 
-      and building creative projects with electronics and coding. I strongly believe in lifelong 
-      learning and continuously push myself to upgrade my skills in cloud, AI, and modern software development.
-    </p>
+        <ul class="bullets">
+          <li><strong>Infrastructure:</strong> FortiGate firewalls, SD-WAN, VLAN/Layer-3 core, Wi-Fi, ISP failover</li>
+          <li><strong>Security & Monitoring:</strong> CCTV/NVR, SOC mindset, alerting & automation</li>
+          <li><strong>Apps & ERP:</strong> HR/attendance, asset management, plant workflows</li>
+          <li><strong>Leadership:</strong> vendor management, budgeting, stakeholder alignment</li>
+        </ul>
+        <div class="actions" style="margin-top:16px">
+          <a class="btn" href="#focus">What I Focus On</a>
+        </div>
+      </div>
 
-    <div class="images">
-      <img src="1.jpeg" alt="Personal Photo 1">
-      <img src="2.jpeg" alt="Personal Photo 2">
-      <img src="3.jpeg" alt="Personal Photo 3">
+      <div class="grid gallery">
+        <div class="card panel"><img class="img" src="1.jpeg" alt="Selvam at work 1"></div>
+        <div class="card panel"><img class="img" src="2.jpeg" alt="Selvam at work 2"></div>
+        <div class="card panel"><img class="img" src="3.jpeg" alt="Selvam at work 3"></div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 Selvam Dakshnamoorthy | All Rights Reserved</p>
+  <!-- Focus Areas / Skills -->
+  <section id="focus" class="section">
+    <div class="container">
+      <h2 style="margin-bottom:14px">Core Focus Areas</h2>
+      <div class="grid skill-grid">
+        <div class="skill panel">
+          <h4>Network Reliability</h4>
+          <p>Layer-3 design, SD-WAN, multi-ISP, performance SLAs, proactive monitoring.</p>
+        </div>
+        <div class="skill panel">
+          <h4>Security & Governance</h4>
+          <p>Firewall hardening, access control, CCTV/IoT, policy & compliance hygiene.</p>
+        </div>
+        <div class="skill panel">
+          <h4>Automation & Apps</h4>
+          <p>Digitize attendance, asset register, workflows; reduce manual steps and errors.</p>
+        </div>
+        <div class="skill panel">
+          <h4>Cloud Fundamentals</h4>
+          <p>Azure/AWS basics, cost-aware adoption, identity and backup strategies.</p>
+        </div>
+        <div class="skill panel">
+          <h4>Data & Dashboards</h4>
+          <p>KPI visibility for leadership: uptime, tickets, costs, and productivity.</p>
+        </div>
+        <div class="skill panel">
+          <h4>Team Enablement</h4>
+          <p>Documentation, SOPs, and coaching so teams can scale operations safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container panel" style="padding:22px">
+      <h2 style="margin-top:0">Contact</h2>
+      <p class="muted" style="color:#9fb0c2;margin-top:6px">
+        Open to senior IT leadership roles and transformation projects.
+      </p>
+      <div class="actions" style="margin-top:12px">
+        <a class="btn" href="mailto:youremail@example.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    © <script>document.write(new Date().getFullYear())</script> Selvam Dakshnamoorthy · Built with care
   </footer>
 </body>
 </html>
